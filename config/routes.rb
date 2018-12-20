@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
 
-  get 'static_pages/help'
-
-  #root 'movies#home'
+  root 'static_pages#home'
   get  '/dashboard',       to: 'movies#dashboard'
   get  '/trendingmovies',  to: 'movies#index'
   get  '/searchresults',   to: 'movies#search_results'
