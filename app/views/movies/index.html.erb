@@ -1,19 +1,23 @@
 <h1>The Top Trending Movies</h1>
 
-<% if !@genres.results.empty? %>
-  <% @genres.results.each do |genre| %>
-    <h2><%=genre.original_title%></h2>
+<% if !@allmovies.results.empty? %>
+  <% @allmovies.results.each do |amovie| %>
+    <h2><%=amovie.original_title%></h2>
+    <form action="/moviedetails">
+      <input type="hidden" name="id" value=<%=amovie.id%>>
+      <input type="submit" value="Details">
+    </form>
   <% end %>
-  <% if @genres.page < @genres.total_pages %>
+  <% if @allmovies.page < @allmovies.total_pages %>
     <form action="/trendingmovies">
-      <input type="hidden" name="page" value=<%=@genres.page+1%>>
-      <input type="submit" value=<%=@genres.page%>>
+      <input type="hidden" name="page" value=<%=@allmovies.page+1%>>
+      <input type="submit" value=<%=@allmovies.page%>>
     </form>
   <% end %>  
 <% else %>
   <h2> there's no such page </h2>
   <form action="/trendingmovies">
-    <input type="hidden" name="page" value=<%=@genres.total_pages%>>
+    <input type="hidden" name="page" value=<%=@allmovies.total_pages%>>
     <input type="submit" value="Go back">
   </form>
   <form action="/">

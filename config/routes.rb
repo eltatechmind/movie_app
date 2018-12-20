@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'movies#home'
   get  '/trendingmovies',  to: 'movies#index'
   get  '/searchresults',   to: 'movies#search_results'
+  get '/moviedetails',     to: 'movies#movie_details'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,6 +3,10 @@
 <% if !@moviesnames.results.empty? %>
   <% @moviesnames.results.each do |name| %>
     <h2><%=name.original_title%></h2>
+    <form action="/moviedetails">
+      <input type="hidden" name="id" value=<%=name.id%>>
+      <input type="submit" value="Details">
+    </form>
   <% end %>
   <% if @moviesnames.page < @moviesnames.total_pages %>
     <form action="/searchresults">
