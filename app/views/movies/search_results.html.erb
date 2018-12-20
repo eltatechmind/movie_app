@@ -1,0 +1,34 @@
+<h1><%=@moviesnames.total_results%> Search Results for "<%=@searchedname%>"</h1>
+
+<% if !@moviesnames.results.empty? %>
+  <% @moviesnames.results.each do |name| %>
+    <h2><%=name.original_title%></h2>
+  <% end %>
+  <% if @moviesnames.page < @moviesnames.total_pages %>
+    <form action="/searchresults">
+      <input type="hidden" name="name" value=<%=@searchedname%>>
+      <input type="hidden" name="page" value=<%=@moviesnames.page+1%>>
+      <input type="submit" value=<%=@moviesnames.page%>>
+    </form>
+  <% end %>
+<% elsif @moviesnames.total_results == 0%>
+  <h2>there's no such results for that movie!</h2>
+  <form action="/searchresults">
+    Search Again: <input type="text" name="name" required><br><br>
+    <input type="submit" value="search">
+  </form> 
+<% else %>
+  <h2> there's no such page </h2>
+  <form action="/searchresults">
+    <input type="hidden" name="name" value=<%=@searchedname%>>
+    <input type="hidden" name="page" value=<%=@moviesnames.total_pages%>>
+    <input type="submit" value="go back">
+  </form>
+  <form action="/">
+    <input type="submit" value="Go home" />
+  </form>
+<% end %>
+
+
+
+ 
