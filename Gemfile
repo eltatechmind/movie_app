@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-
+# beautify console outputs
+gem 'awesome_print'
+gem 'pry', '~> 0.10.3'
+# a wrapper for themovidedb api
+gem 'themoviedb-api', '~> 1.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.11'
 # Use sqlite3 as the database for Active Record
