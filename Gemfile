@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'puma'
 # beautify console outputs
 gem 'awesome_print'
 gem 'pry', '~> 0.10.3'
@@ -42,12 +44,22 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'listen'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-watcher-listen'
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'guard'
+  gem 'guard-minitest'
 end
 
 group :production do
-	gem 'pg'
+	gem 'pg', '~> 0.20'
 end
 
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
