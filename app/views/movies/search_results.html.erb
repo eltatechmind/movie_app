@@ -2,35 +2,43 @@
 <h1><%=@moviesnames.total_results%> Search Results for "<%=@searchedname%>"</h1>
 
 <% if !@moviesnames.results.empty? %>
-  <% @moviesnames.results.each do |name| %>
-    <h2><%=name.original_title%></h2>
-    <form action="/moviedetails">
-      <input type="hidden" name="id" value=<%=name.id%>>
-      <input type="submit" value="Details">
-    </form>
-  <% end %>
+  <ul class="users">
+    <% @moviesnames.results.each do |name| %>
+      <div style="border-style: dashed;">
+        <li style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;"><%=name.original_title%></li>
+        <li>
+          <form action="/moviedetails">
+            <input type="hidden" name="id" value=<%=name.id%>>
+            <input style="margin:auto; display:block; text-align: center; background-color: #ffb90f; width: 40%; font-weight: bold;" type="submit" value="Details">
+          </form>
+        </li>
+      </div>
+      <br><br>
+    <% end %>
+  </ul>
   <% if @moviesnames.page < @moviesnames.total_pages %>
     <form action="/searchresults">
       <input type="hidden" name="name" value=<%=@searchedname%>>
       <input type="hidden" name="page" value=<%=@moviesnames.page+1%>>
-      <input type="submit" value=<%=@moviesnames.page%>>
+      <input style= " margin:auto; display:block; text-align: center; background-color: blue; width: 10%; color:black; font-weight: bold;"type="submit" value=<%=@moviesnames.page%>>
     </form>
   <% end %>
 <% elsif @moviesnames.total_results == 0%>
-  <h2>there's no such results for that movie!</h2>
-  <form action="/searchresults">
-    Search Again: <input type="text" name="name" required><br><br>
-    <input type="submit" value="search">
-  </form> 
+  <h2 style="color:red; font-weight: bold;">there's no such results for that movie!</h2>
+  <h2 style="color:black; font-weight: bold;"><u>Search Again: </u></h2> 
+ <form action="/searchresults">
+  <input placeholder="enter movie name here...." style="background-color: #ffd7a3; margin:auto; display:block; text-align: center; width: 20%; color:black; font-weight: bold;" type="text" name="name" required><br><br>
+  <input style="margin:auto; display:block; text-align: center; background-color: #9EF598; width: 10%; color:black; font-weight: bold;" type="submit" value="search">
+</form> 
 <% else %>
-  <h2> there's no such page </h2>
+  <h2 style="color:black; font-weight: bold;"><u> there's no such page</u></h2>
   <form action="/searchresults">
     <input type="hidden" name="name" value=<%=@searchedname%>>
     <input type="hidden" name="page" value=<%=@moviesnames.total_pages%>>
-    <input type="submit" value="go back">
+    <input style= " margin:auto; display:block; text-align: center; background-color: blue; width: 20%; color:black; font-weight: bold;" type="submit" value="Go back">
   </form>
   <form action="/dashboard">
-    <input type="submit" value="Go to the Dashboard" />
+    <input style= " margin:auto; display:block; text-align: center; background-color: blue; width: 20%; color:black; font-weight: bold;" type="submit" value="Go to the Dashboard" />
   </form>
 <% end %>
 

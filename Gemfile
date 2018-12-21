@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'bcrypt'
+gem 'faker'
 gem 'bootstrap-sass'
 gem 'puma'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 # beautify console outputs
 gem 'awesome_print'
 gem 'pry', '~> 0.10.3'
@@ -27,7 +29,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # Use Unicorn as the app server
 # gem 'unicorn'

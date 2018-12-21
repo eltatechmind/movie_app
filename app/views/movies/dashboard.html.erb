@@ -1,9 +1,11 @@
 <% provide(:title, "Dashboard") %>
-<h1>Welcome to The Movies App</h1>
+<h1>The Movies Dashboard</h1>
+<h2 style="color:black; font-weight: bold;"><u>Go To Top Trending Movies</u></h2> 
 <form action="/trendingmovies">
-  <input type="submit" value="Go to Top Trending Movies"/>
+  <input style="margin:auto; display:block; text-align: center; background-color: #9EF598; color:black; font-weight: bold;"type="submit" value="Press Here"/>
 </form>
+<h2 style="color:black; font-weight: bold;"><u>Search for a Movie</u></h2> 
 <form action="/searchresults">
-  or Search For a movie: <input type="text" name="name" required><br><br>
-  <input type="submit" value="search">
+  <input placeholder="enter movie name here...." style="background-color: #ffd7a3; margin:auto; display:block; text-align: center; width: 20%; color:black; font-weight: bold;" type="text" name="name" required><br><br>
+  <input style="margin:auto; display:block; text-align: center; background-color: #9EF598; width: 10%; color:black; font-weight: bold;" type="submit" value="search">
 </form> 

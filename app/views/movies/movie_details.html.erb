@@ -1,22 +1,20 @@
 <% provide(:title, @details.original_title) %>
 <h1><%=@details.original_title%></h1>
-<h2>Release Date:</h2>
-<p><%=@details.release_date%></p>
-<h2>Revenue:</h2>
-<p><%=@details.revenue%></p>
-<h2>Overview:</h2>
-<p><%=@details.overview%></p>
+<h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Release Date</h2>
+<p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><%=@details.release_date%></p>
+<h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Revenue</h2>
+<p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><%=@details.revenue%></p>
+<h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Overview</h2>
+<p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><%=@details.overview%></p>
 <%if !@casts.empty?%>
-  <h2>Casts:</h2>
+  <h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Cast</h2>
   <%@countr = 0%>
-  <ul>
     <%@casts.each do |cast|%>
-      <li><%=cast.name%></li>
+      <p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><u><%=cast.name%></u></p>
       <% @countr+=1 %>
       <% break if @countr == 5 %>
     <% end %>
-  </ul>
 <% end %>
 <form action="/dashboard">
-  <input type="submit" value="Go to the Dashboard" />
+  <input style= " margin:auto; display:block; text-align: center; background-color: #06f9ba; width: 20%; color:black; font-weight: bold;" type="submit" value="Go to the Dashboard" type="submit" value="Go to the Dashboard" />
 </form>
