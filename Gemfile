@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'bootstrap-sass'
 gem 'puma'
 # beautify console outputs
 gem 'awesome_print'
