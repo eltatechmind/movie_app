@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'puma'
 # beautify console outputs
