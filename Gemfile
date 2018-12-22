@@ -5,6 +5,8 @@ gem 'bootstrap-sass'
 gem 'puma'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'devise'
+gem 'activeadmin'
 # beautify console outputs
 gem 'awesome_print'
 gem 'pry', '~> 0.10.3'

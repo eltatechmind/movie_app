@@ -16,3 +16,5 @@ User.create!(name:  "Ahmed Fouad",
               activated: true,
               activated_at: Time.zone.now)
 end
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.production?
