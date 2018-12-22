@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :logged_in_user, only: [:index, :dashboard, :movie_details, :search_results]
+
   def index
     if params[:page].blank? 
       @allmovies = Tmdb::Movie.popular
@@ -30,5 +32,23 @@ class MoviesController < ApplicationController
       @searchedname = params[:name]
       @moviesnames = Tmdb::Search.movie(@searchedname, page: params[:page])
     end
+  end
+
+  private
+  # Before filters
+
+  # Confirms a logged-in user.
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "Please log in."
+      redirect_to login_url
+    end
+  end
+
+  # Confirms the correct user.
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end
