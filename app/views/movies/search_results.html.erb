@@ -12,6 +12,16 @@
             <input style="margin:auto; display:block; text-align: center; background-color: #ffb90f; width: 40%; font-weight: bold;" type="submit" value="Details">
           </form>
         </li>
+        <% x = @list.find_by(movie: name.id)%>
+        <% if x.nil?%>
+          <div style="margin:auto; display:block; text-align: center; font-weight: bold;" class = "addo" id = <%=name.id%> >
+            <br>
+            <button class="addcart btn btn-primary">Add To Favorite List</button>
+          </div>
+          <p class="successl<%=name.id%> alert alert-success" style="margin:auto; display:none; text-align: center; width: 40%; font-weight: bold;"></p>
+          <p class="errorl<%=name.id%> alert alert-danger" style="margin:auto; display:none; text-align: center; width: 40%; font-weight: bold;"></p>
+          <br>
+        <% end %>
       </div>
       <br><br>
     <% end %>

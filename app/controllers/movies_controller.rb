@@ -2,6 +2,8 @@ class MoviesController < ApplicationController
   before_action :logged_in_user, only: [:index, :dashboard, :movie_details, :search_results]
 
   def index
+    @user = current_user
+    @list = @user.lists
     if params[:page].blank? 
       @allmovies = Tmdb::Movie.popular
     else
@@ -23,6 +25,8 @@ class MoviesController < ApplicationController
   end
 
   def search_results
+    @user = current_user
+    @list = @user.lists
     if params[:page].blank? && params[:name].blank?
       redirect_to dashboard_path
     elsif params[:page].blank?
