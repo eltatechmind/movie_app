@@ -14,7 +14,7 @@
         </li>
         <% x = @list.find_by(movie: amovie.id)%>
         <% if x.nil?%>
-          <div style="margin:auto; display:block; text-align: center; font-weight: bold;" class = "addo" id = <%=amovie.id%> >
+          <div style="margin:auto; display:block; text-align: center; font-weight: bold;" class = "addo" id = "<%=amovie.id%>" >
             <br>
             <button class="addcart btn btn-primary">Add To Favorite List</button>
           </div>

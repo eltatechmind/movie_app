@@ -20,6 +20,13 @@
           <% break if @countr == 5 %>
         <% end %>
     <% end %>
+    <div style="margin:auto; display:block; text-align: center; font-weight: bold;" class = "removeitemparent" id = "<%=@movie.id%>" >
+      <br>
+      <button class="removeitem btn btn-primary">Remove From Favorite List</button>
+    </div>
+    <p class="successx<%=@movie.id%> alert alert-success" style="margin:auto; display:none; text-align: center; width: 40%; font-weight: bold;"></p>
+    <p class="errorx<%=@movie.id%> alert alert-danger" style="margin:auto; display:none; text-align: center; width: 40%; font-weight: bold;"></p>
+    <br>
   <% end %>
   <%= will_paginate %>
 <% end %>

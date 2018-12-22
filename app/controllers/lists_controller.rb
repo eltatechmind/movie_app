@@ -22,16 +22,18 @@ class ListsController < ApplicationController
   end
 
   def delete
-    @list = List.find(params[:id])
-    unless @list.nil?
-      @list.destroy
-      render json: { success_message: 'Success!, Movie is deleted.' }, status: :ok
+    user = current_user
+    list = user.lists.find_by(movie: params[:movie])
+    unless list.nil?
+      list.destroy
+      render json: { success_message: 'Success!, Movie is removed.' }, status: :ok
+      return
     end
+    render json: { error_message: "Error!, Movie is not in the list "}, status: :error
   end
 
   def favorite_list
     @user = User.find(params[:id])
-    #@list = @user.lists.paginate
     @lists = List.where(user_id: params[:id]).paginate(page: params[:page], per_page: 5)
   end
 
@@ -54,9 +56,9 @@ class ListsController < ApplicationController
 
   # Confirms the list record belongs to the current user.
   def correct_list
-    @user = current_user
-    @list = List.find(params[:id])
-    redirect_to(root_url) unless @list.user_id == @user.id
+    user = current_user
+    list = user.lists.find_by(movie: params[:movie])
+    redirect_to(root_url) if list.nil?
   end
 
 end
