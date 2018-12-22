@@ -20,6 +20,8 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", current_user %></li>
+              <% elta = current_user%>
+              <li><%= link_to "Favorite Movies", favoritelist_path(id: elta.id) %></li>
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li>
@@ -28,9 +30,25 @@
             </ul>
           </li>
         <% else %>
-          <li><%= link_to "Log in", login_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Login <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "As User", login_path %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "As Admin", admin_dashboard_path %>
+              </li>
+           </ul>
+          </li>
         <% end %>
       </ul>
     </nav>
   </div>
 </header>
+
+
+
+
+

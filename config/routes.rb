@@ -36,6 +36,7 @@ Rails.application.routes.draw do
 
   post '/addtolist', to: 'lists#create'
   post '/deletefromlist', to: 'lists#delete'
+  get '/favoritelist', to: 'lists#favorite_list'
   resources :lists
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -29,6 +29,12 @@ class ListsController < ApplicationController
     end
   end
 
+  def favorite_list
+    @user = User.find(params[:id])
+    #@list = @user.lists.paginate
+    @lists = List.where(user_id: params[:id]).paginate(page: params[:page], per_page: 5)
+  end
+
   private
 
   #def list_params

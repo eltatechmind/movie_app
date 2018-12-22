@@ -1,0 +1,29 @@
+<% provide(:title, @user.name) %>
+<% if !@lists.empty? %>
+  <%= will_paginate %>
+  <% @lists.each do |item| %>
+    <%@movie = Tmdb::Movie.detail(item.movie)%>
+    <%@casts = Tmdb::Movie.cast(item.movie)%>
+    <h1><%=@movie.original_title%></h1>
+    <h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Release Date</h2>
+    <p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><%=@movie.release_date%></p>
+    <h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Revenue</h2>
+    <p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><%=@movie.revenue%></p>
+    <h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Overview</h2>
+    <p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><%=@movie.overview%></p>
+    <%if !@casts.empty?%>
+      <h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Cast</h2>
+      <%@countr = 0%>
+        <%@casts.each do |cast|%>
+          <p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><u><%=cast.name%></u></p>
+          <% @countr+=1 %>
+          <% break if @countr == 5 %>
+        <% end %>
+    <% end %>
+  <% end %>
+  <%= will_paginate %>
+<% end %>
+
+<form action="/dashboard">
+  <input style= " margin:auto; display:block; text-align: center; background-color: #06f9ba; width: 20%; color:black; font-weight: bold;" type="submit" value="Go to the Dashboard" type="submit" value="Go to the Dashboard" />
+</form>
