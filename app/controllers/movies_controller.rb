@@ -21,6 +21,7 @@ class MoviesController < ApplicationController
       @details = Tmdb::Movie.detail(params[:id])
       redirect_to dashboard_path if @details.nil?
       @casts = Tmdb::Movie.cast(params[:id])
+      @image = Tmdb::Movie.posters(params[:id]).first
     end
   end
 

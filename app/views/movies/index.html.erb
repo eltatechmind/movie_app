@@ -6,6 +6,16 @@
     <% @allmovies.results.each do |amovie| %>
       <div style="border-style: dashed;">
         <li style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;"><%=amovie.original_title%></li>
+        <%@image = Tmdb::Movie.posters(amovie.id).first %>
+        <%unless @image.nil?%>
+          <br><br>
+          <img src="https://image.tmdb.org/t/p/w342<%=@image.file_path%>" alt="<%=amovie.original_title%>" style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;">
+          <br><br>
+        <% else %>  
+          <br><br>
+          <img src="https://vignette.wikia.nocookie.net/thaibunterng/images/7/7d/No-poster.jpg/revision/latest?cb=20180526170933&path-prefix=th" alt="no poster available" style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;">
+          <br><br>
+        <% end %>
         <li>
           <form action="/moviedetails">
             <input type="hidden" name="id" value=<%=amovie.id%>>

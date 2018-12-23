@@ -1,5 +1,12 @@
 <% provide(:title, @details.original_title) %>
 <h1><%=@details.original_title%></h1>
+<%unless @image.nil?%>
+  <img src="https://image.tmdb.org/t/p/w342<%=@image.file_path%>" alt="<%=@details.original_title%>" style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;">
+  <br><br>
+<% else %>  
+  <img src="https://vignette.wikia.nocookie.net/thaibunterng/images/7/7d/No-poster.jpg/revision/latest?cb=20180526170933&path-prefix=th" alt="no poster available" style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;">
+  <br><br>
+<% end %>
 <h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Release Date</h2>
 <p style="margin:auto; display:block; text-align: center; background-color: #ffb90f; font-weight: bold;"><%=@details.release_date%></p>
 <h2 style=" color: red; background-color: #06f9ba; margin:auto; display:block; text-align: center; font-weight: bold;">Revenue</h2>
