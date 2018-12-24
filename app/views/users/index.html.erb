@@ -6,6 +6,11 @@
 <ul class="users">
   <% @users.each do |user| %>
     <%= render user %>
+    <form action="/favoritelist" method="GET">
+      <input type="hidden" name="id" value=<%=user.id%>%>
+      <input style="background-color: #9EF598; margin:auto; display:block; text-align: center; width: 20%; color:black; font-weight: bold; float:left"type="submit" value="View Favorite Movies"/>
+      <br><br>
+    </form>
   <% end %>
 </ul>
 
