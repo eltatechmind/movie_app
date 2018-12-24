@@ -12,11 +12,4 @@ ActiveAdmin.register User do
 #   permitted
 # end
 permit_params :name, :email, :password, :activated
-#index do
-#  column :name
-#  column :email
-#  column :created_at
-#  column :updated_at
-#  column :activated
-#end
 end
