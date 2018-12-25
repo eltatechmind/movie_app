@@ -44,6 +44,8 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rspec-rails'
+  gem 'shoulda'
 end
 
 group :development do
@@ -61,6 +63,7 @@ group :test do
   gem 'minitest-reporters'
   gem 'guard'
   gem 'guard-minitest'
+  gem 'shoulda-matchers'
 end
 
 group :production do
