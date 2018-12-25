@@ -44,8 +44,16 @@ group :development, :test do
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  # rspec for testing
   gem 'rspec-rails'
+  # for testing assocations easily inside rspec
   gem 'shoulda'
+  # for testing submitting info through a form
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  # for debuagging failed rspec tests
+  gem 'launchy'
+  gem 'selenium-webdriver', '~> 2.53', '>= 2.53.4'
+  gem 'database_cleaner'
 end
 
 group :development do
@@ -59,10 +67,6 @@ end
 
 group :test do
   gem 'rails-controller-testing'
-  gem 'minitest'
-  gem 'minitest-reporters'
-  gem 'guard'
-  gem 'guard-minitest'
   gem 'shoulda-matchers'
 end
 

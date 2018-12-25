@@ -1,28 +1,19 @@
-== README
+This is The Movies web application created on Ruby on Rails.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- the home page have sign up option, or login
+- sign up done using email verification, you can't login unless you verify your account (using sendgrid)
+- you login to the website either as a user, or to the database admin dashboard as an admin
+- as an admin, you login to the database admin dashboard which was created (using activeadmin), and the sign up system was created (using devise)
+- as a user, you login to the website through a sign up system (created and implemented from scratch), if you forget your password you can reset it by email
+- when you login you can 
+ 1. edit your profile
+ 2. go to the movies dashboard, and find the most trending movies, or search for your favorite movie (using wrapper for themoviesdb called the moviesdb-api)
+ 3. add any of those movies to your favorite list, or remove from the list (ajax requests JS)
+ 4. view other users (only verified ones), and see their favorite movies list from the users button on the header
 
-Things you may want to cover:
+- every user account can access or modify his data, can't send request to modify others, we only allow him to view the others profile and their favorite list
+- to use the website locally, clone it, then "rake db:migrate" then "rake db:seed"
+- to view the website on production, you can check it on heroku from here "https://peaceful-spire-75246.herokuapp.com" but there's a very low rate for requests on production per seconds (only one request every 15 seconds), if you make two following requests two fast (like fetch the first page of trending movies then the second one without waiting 15 second), themoviesdb will give you timeout, which will result in error on heroku, if you wait 15 second and refresh the page, it will work again
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- luckily, on localhost the rate is higher, so you can browse pages as fast as you can
+- rspec is included too for models and some of the controllers
